@@ -10,8 +10,8 @@ return {
         -- rust = {"rustfmt"},
         -- ["*"] = {"codespell"},
         -- * for all file types, _ for filetypes without formatters
-        toml = {"taplo"},
-        ["_"] = {"trim_whitespace"},
+        toml = { "taplo" },
+        ["_"] = { "trim_whitespace" },
     },
     format_on_save = {
         lsp_fallback = true,

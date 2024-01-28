@@ -28,7 +28,7 @@ local Plugins = {
     {
         "rcarriga/nvim-dap-ui",
         init = function()
-            local dap, dapui = require('dap'). require('dapui')
+            local dap, dapui = require('dap'), require('dapui')
             dapui.setup()
             dap.listeners.after.event_initialized["dapui_config"] = function()
                 dapui.open()
@@ -44,13 +44,13 @@ local Plugins = {
     {
         "stevearc/conform.nvim",
         event=  {"BufReadPre", "BufNewFile"},
-        opts = require("custom.config.conform"),
+        opts = require("custom.configs.conform"),
     },
     {
         "simrat39/rust-tools.nvim",
         ft = "rust",
         dependencies = "neovim/nvim-lspconfig",
-        opts = require "custom.configs.rust-tools"
+        opts = require "custom.configs.rust-tools",
         config = function(_, opts)
             require('rust-tools').setup(opts)
         end
@@ -80,7 +80,7 @@ local Plugins = {
     },
     {
         "ellisonleao/glow.nvim",
-        opts = requrie("custom.configs.glow"),
+        opts = require("custom.configs.glow"),
         ft = "markdown",
         config = function(_, opts)
             require('glow').setup(opts)

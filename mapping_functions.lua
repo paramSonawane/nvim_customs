@@ -1,10 +1,10 @@
-locla print_warn = function(msg)
+local print_warn = function(msg)
     vim.api.nvim_command('echohl WarningMsg')
     vim.api.nvim_command('echomsg "' .. msg .. '"')
     vim.api.nvim_command('echohl None')
 end
 
-lcoal get_file_git_status = function()
+local get_file_git_status = function()
     local api = require('nvim-tree.api')
 
     local node = api.tree.get_node_under_curor()

@@ -6,7 +6,7 @@ return {
         dim = 0.02,
         cleaning_interval = 1250,
     },
-    trigger_events = {"CursorHold", "InsertLeave", "TextChanged"},
+    trigger_events = { "CursorHold", "InsertLeave", "TextChanged" },
     condition = function(buf)
         local fn = vim.fn
         local utils = require('auto-save.utils.data')
@@ -15,10 +15,10 @@ return {
         then
             return true
         end
-            return false
+        return false
     end,
     write_all_buffers = false,
-    debouse_delay = 135,
+    debounce_delay = 135,
     callbacks = {
         enabling = nil,
         disabling = nil,
