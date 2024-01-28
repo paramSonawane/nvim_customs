@@ -2,9 +2,9 @@ return {
     ensure_installed = {
         "codespell",
         -- "cspell",
-        "gopls",
+        -- "gopls",
         "lua-language-server",
-        "markdownlint-cli2",
+        "markdownlint",
         "rust-analyzer",
         "prettier",
         "isort",
