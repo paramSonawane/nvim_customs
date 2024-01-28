@@ -43,8 +43,17 @@ local Plugins = {
     },
     {
         "stevearc/conform.nvim",
-        event=  {"BufReadPre", "BufNewFile"},
+        event = { "BufReadPre", "BufNewFile" },
         opts = require("custom.configs.conform"),
+        config = function(_, opts)
+            local conform = require("conform")
+            conform.setup(opts)
+        end
+    },
+    {
+        "mfussenegger/nvim-lint",
+        event = { "BufReadPre", "BufNewFile" },
+        config = require("custom.configs.nvimlint")
     },
     {
         "simrat39/rust-tools.nvim",
@@ -57,7 +66,7 @@ local Plugins = {
     },
     {
         "saecki/crates.nvim",
-        ft = {"rust", "toml"},
+        ft = { "rust", "toml" },
         config = function(_, opts)
             local crates = require("crates")
             crates.setup(opts)
@@ -68,7 +77,7 @@ local Plugins = {
         "hrsh7th/nvim-cmp",
         opts = function()
             local M = require "plugins.configs.cmp"
-            table.insert(M.sources, {name = "crates"})
+            table.insert(M.sources, { name = "crates" })
             return M
         end
     },
@@ -95,7 +104,7 @@ local Plugins = {
         end,
     },
     {
-        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+        "paramSonawane/lsp_lines.nvim",
         config = function()
             require('lsp_lines').setup()
         end,
