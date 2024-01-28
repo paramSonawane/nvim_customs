@@ -6,19 +6,19 @@ M.general = {
             "<cmd> Lazy sync <CR>",
             "Update plugins"
         },
-        ["<C-h"] = {
+        ["<C-h>"] = {
             "<cmd> TmuxNavigateLeft <CR>",
             "Window Left"
         },
-        ["<C-j"] = {
+        ["<C-j>"] = {
             "<cmd> TmuxNavigateDown <CR>",
             "Window Down"
         },
-        ["<C-k"] = {
+        ["<C-k>"] = {
             "<cmd> TmuxNavigateUp <CR>",
             "Window Up"
         },
-        ["<C-l"] = {
+        ["<C-l>"] = {
             "<cmd> TmuxNavigateRight <CR>",
             "Window Right"
         },
@@ -51,14 +51,14 @@ M.dap = {
             "<cmd> DapStepOut <CR>",
             "Debbuger Step Out"
         },
-            -- ["<leader>dus"] = {
-            --     function()
-            --         local widgets = require('dap.ui.widgets');
-            --         local sidebar = widgets.sidebar(widgets.scopes);
-            --         sidebar.open();
-            --     end,
-            --     "Open Debugging Sidebar"
-            -- }
+        -- ["<leader>dus"] = {
+        --     function()
+        --         local widgets = require('dap.ui.widgets');
+        --         local sidebar = widgets.sidebar(widgets.scopes);
+        --         sidebar.open();
+        --     end,
+        --     "Open Debugging Sidebar"
+        -- }
     }
 }
 

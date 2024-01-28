@@ -7,7 +7,7 @@ end
 local get_file_git_status = function()
     local api = require('nvim-tree.api')
 
-    local node = api.tree.get_node_under_curor()
+    local node = api.tree.get_node_under_cursor()
     local gs = node.git_status.file
 
     -- If the current node is a directory get children status
