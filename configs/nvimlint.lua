@@ -1,12 +1,12 @@
 return function()
-    local lint = requre("lint")
+    local lint = require("lint")
     lint.linters_by_ft = {
-        javascript = { "eslint_d"},
+        javascript = { "eslint_d" },
         -- lua = {"luacheck"},
-        markdown = {"markdownlint"},
+        markdown = { "markdownlint" },
     }
 
-    local lint_augroup = vim.api.nvim_create_augroup("lint", {clear=true});
+    local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true });
     vim.api.nvim_create_autocmd(
         {
             "BufEnter", "BufWritePost",
