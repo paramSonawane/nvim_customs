@@ -49,7 +49,7 @@ M.dap = {
         },
         ["<leader>dso"] = {
             "<cmd> DapStepOut <CR>",
-            "Debbuger Step Out"
+            "Debugger Step Out"
         },
         -- ["<leader>dus"] = {
         --     function()

@@ -70,7 +70,7 @@ local M = {
     cmd_out_vsplit = cmd_out_vsplit,
     cmd_out_vterm = cmd_out_vterm,
     format_pretty = function()
-        requrie('conform').format({
+        require('conform').format({
             lsp_fallback = true,
             async = false,
             timeout_ms = 500
