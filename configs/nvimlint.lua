@@ -6,6 +6,19 @@ return function()
         markdown = { "markdownlint" },
     }
 
+    lint.linters.codespell_columns = {
+        cmd = 'codespell',
+        stdin = false,
+        ignore_exitcode = true,
+        parser = require('lint.parser').from_errorformat(
+            '%f:%l:%c:%m',
+            {
+                severity = vim.diagnostic.severity.INFO,
+                source = 'codespell'
+            }
+        )
+    }
+
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true });
     vim.api.nvim_create_autocmd(
         {
@@ -16,7 +29,7 @@ return function()
             group = lint_augroup,
             callback = function()
                 lint.try_lint()
-                lint.try_lint("codespell")
+                lint.try_lint("codespell_columns")
             end
         }
     )

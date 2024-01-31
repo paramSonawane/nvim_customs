@@ -1,6 +1,6 @@
 return {
     ensure_installed = {
-        "codespell",
+        "codespell_columns",
         -- "cspell",
         -- "gopls",
         "lua-language-server",
@@ -17,5 +17,9 @@ return {
         icons = {
             package_uninstalled = ""
         }
+    },
+    registries = {
+        "github:mason-org/mason-registry",
+        "github:paramSonawane/mason-registry",
     }
 }
