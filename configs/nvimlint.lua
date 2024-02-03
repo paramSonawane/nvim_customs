@@ -2,6 +2,7 @@ return function()
     local lint = require("lint")
     lint.linters_by_ft = {
         javascript = { "eslint_d" },
+        json = { "jsonlint" },
         -- lua = {"luacheck"},
         markdown = { "markdownlint" },
     }
@@ -48,8 +49,13 @@ return function()
         {
             group = lint_augroup,
             callback = function()
-                lint.try_lint()
-                lint.try_lint("codespell_columns")
+                local buf = vim.api.nvim_get_current_buf()
+                if vim.fn.getbufvar(buf, "&modifiable") == 1
+                -- and utils.not_in(fn.getbufvar(buf, "&filetype"), {})
+                then
+                    lint.try_lint()
+                    lint.try_lint("codespell_columns")
+                end
             end
         }
     )
