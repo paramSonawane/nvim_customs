@@ -10,6 +10,7 @@ return {
         -- rust = {"rustfmt"},
         -- ["*"] = {"codespell"},
         -- * for all file types, _ for filetypes without formatters
+        json = { "jq" },
         toml = { "taplo" },
         ["_"] = { "trim_whitespace" },
     },

@@ -3,6 +3,8 @@ return {
         "codespell_columns",
         -- "cspell",
         -- "gopls",
+        "jsonlint",
+        "jq",
         "lua-language-server",
         "markdownlint",
         "rust-analyzer",
