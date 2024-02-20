@@ -26,6 +26,15 @@ local Plugins = {
         "mfussenegger/nvim-dap"
     },
     {
+        "nvimdev/lspsaga.nvim",
+        config = require "custom.configs.lspsaga",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-tree/nvim-web-devicons"
+        },
+        event = "LspAttach"
+    },
+    {
         "rcarriga/nvim-dap-ui",
         init = function()
             local dap, dapui = require('dap'), require('dapui')
