@@ -1,5 +1,10 @@
 return function()
     require('lspsaga').setup({
+        code_action = {
+            keys = {
+                quit = { '<ESC>', 'q' }
+            }
+        },
         ui = {
             border = 'rounded',
             code_action = ""
