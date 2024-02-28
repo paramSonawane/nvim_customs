@@ -117,6 +117,24 @@ local Plugins = {
         end,
     },
     {
+        "NeogitOrg/neogit",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "sindrets/diffview.nvim",
+            "nvim-telescope/telescope.nvim"
+        },
+        config = true
+    },
+    {
+        'echasnovski/mini.animate',
+        opts = require("custom.configs.mini_animate"),
+        config = function(_, opts)
+            require('mini.animate').setup(opts)
+        end,
+        version = false,
+        lazy = false
+    },
+    {
         "paramSonawane/lsp_lines.nvim",
         config = function()
             require('lsp_lines').setup()
