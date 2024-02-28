@@ -5,7 +5,18 @@ M.ui = {
     -- transparency = true,
     statusline = {
         theme = "vscode_colored",
-    }
+        -- modules arg here is the default table of modules
+        -- overriden_modules = function(modules)
+        -- modules[1] = (function()
+        --    return "MODE!"
+        -- end)()
+        -- table.insert(
+        --    modules,
+        --    4,
+        --    require('nvchad.statusline.vscode_colored').gitchanges()
+        -- )
+        -- end,
+    },
 }
 
 M.plugins = 'custom.plugins'
