@@ -26,6 +26,10 @@ local Plugins = {
         "mfussenegger/nvim-dap"
     },
     {
+        "nvim-treesitter/nvim-treesitter",
+        config = require "custom.configs.nvim_treesitter"
+    },
+    {
         "nvimdev/lspsaga.nvim",
         config = require "custom.configs.lspsaga",
         dependencies = {
