@@ -8,10 +8,6 @@ local Plugins = {
         lazy = false
     },
     {
-        "ThePrimeagen/vim-be-good",
-        lazy = false
-    },
-    {
         "nvim-tree/nvim-tree.lua",
         opts = require "custom.configs.nvimtree"
     },
@@ -27,7 +23,30 @@ local Plugins = {
     },
     {
         "nvim-treesitter/nvim-treesitter",
-        config = require "custom.configs.nvim_treesitter"
+        build = ':TSUpdate',
+        config = require "custom.configs.nvim_treesitter",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter-textobjects"
+        }
+    },
+    {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        lazy = true,
+        opts = require "custom.configs.nvim_treesitter_text_objects",
+        config = function(_, opts)
+            require("nvim-treesitter.configs").setup(opts)
+            local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
+
+            -- ; to jump to next text object move, , for prev
+            vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
+            vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
+
+            -- allow ; and , to also work for fF and tT of vim
+            vim.keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f)
+            vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F)
+            vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t)
+            vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
+        end
     },
     {
         "nvimdev/lspsaga.nvim",
@@ -139,7 +158,7 @@ local Plugins = {
         config = function()
             require('lsp_lines').setup()
         end,
-        lazy = false
+        event = "LspAttach"
     }
 }
 
