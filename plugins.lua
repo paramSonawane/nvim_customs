@@ -128,6 +128,15 @@ local Plugins = {
         end,
     },
     {
+        "tpope/vim-surround",
+        event = { "BufReadPre", "BufNewFile" },
+    },
+    -- {
+    --     "vim-scripts/ReplaceWithRegister",
+    --     event = { "BufReadPre", "BufNewFile" },
+    --     -- use key gr<motion> to paste by replacing the thing selected by motion
+    -- },
+    {
         "pocco81/auto-save.nvim",
         lazy = false,
         opts = require('custom.configs.autosave'),
