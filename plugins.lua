@@ -136,6 +136,16 @@ local Plugins = {
     --     event = { "BufReadPre", "BufNewFile" },
     --     -- use key gr<motion> to paste by replacing the thing selected by motion
     -- },
+    -- {
+    --     "mg979/vim-visual-multi",
+    --     event = { "BufEnter" }
+    -- },
+    {
+        "gcmt/wildfire.vim",
+        event = { "BufReadPre" }
+        -- press enter to keep expanding the smart selection. press backspace to
+        -- decrease the selection (like a wildfire)
+    },
     {
         "pocco81/auto-save.nvim",
         lazy = false,
