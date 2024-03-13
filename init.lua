@@ -1,3 +1,5 @@
+vim.g.maplocalleader = "\\"
+
 local opt = vim.opt
 
 opt.colorcolumn = "80"
