@@ -1,5 +1,7 @@
 return {
     ensure_installed = {
+        "arduino-language-server",
+        "clangd",
         "codespell_columns",
         -- "cspell",
         -- "gopls",
