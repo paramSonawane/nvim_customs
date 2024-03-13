@@ -2,6 +2,7 @@ return {
     ensure_installed = {
         "arduino-language-server",
         "clangd",
+        "clang_format",
         "codespell_columns",
         -- "cspell",
         -- "gopls",
@@ -25,5 +26,5 @@ return {
     registries = {
         "github:mason-org/mason-registry",
         "github:paramSonawane/mason-registry",
-    }
+    },
 }

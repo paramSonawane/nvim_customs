@@ -10,6 +10,8 @@ return {
         -- rust = {"rustfmt"},
         -- ["*"] = {"codespell"},
         -- * for all file types, _ for filetypes without formatters
+        arduino = { "clang_format" },
+        c = { "clang_format" },
         json = { "jq" },
         toml = { "taplo" },
         ["_"] = { "trim_whitespace" },
@@ -18,5 +20,10 @@ return {
         lsp_fallback = true,
         async = false,
         timeout_ms = 500
+    },
+    formatters = {
+        clang_format = {
+            args = { "-style={IndentWidth: 4}" }
+        }
     }
 }
