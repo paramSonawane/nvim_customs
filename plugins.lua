@@ -4,6 +4,17 @@ local Plugins = {
         opts = require "custom.configs.mason"
     },
     {
+        "williamboman/mason-lspconfig.nvim",
+        opts = {
+            ensure_installed = { 'clangd', 'lua_ls' },
+            automatic_installation = true,
+            handlers = nil,
+        },
+        config = function(_, opts)
+            require('mason-lspconfig').setup(opts)
+        end,
+    },
+    {
         "christoomey/vim-tmux-navigator",
         lazy = false
     },
