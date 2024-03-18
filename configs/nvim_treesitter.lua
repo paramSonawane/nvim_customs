@@ -6,6 +6,7 @@ return {
         enable = true
     },
     ensure_installed = {
+        "arduino",
         "json",
         "regex",
         "lua",
