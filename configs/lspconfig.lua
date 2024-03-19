@@ -188,6 +188,14 @@ lspconfig.clangd.setup {
     end
 }
 
+lspconfig.tsserver.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    init_options = {
+        preferences = { disableSuggesstions = true, }
+    }
+}
+
 lspconfig.lua_ls.setup {
     settings = {
         Lua = {

@@ -26,13 +26,18 @@ M.general = {
 }
 
 M.dap = {
+    plugin = true,
     n = {
         ["<leader>db"] = {
             "<cmd> DapToggleBreakpoint <CR>",
             "Toggle Breakpoint"
         },
+        -- ["<leader>dr"] = {
+        --     "<cmd> RustDebuggables <CR>",
+        --     "Start debugger"
+        -- },
         ["<leader>dr"] = {
-            "<cmd> RustDebuggables <CR>",
+            "<cmd> DapContinue <CR>",
             "Start debugger"
         },
         ["<leader>dn"] = {

@@ -6,13 +6,19 @@ local Plugins = {
     {
         "williamboman/mason-lspconfig.nvim",
         opts = {
-            ensure_installed = { 'clangd', 'lua_ls' },
+            ensure_installed = {
+                'codespell_columns',
+                'tsserver',
+                'clangd',
+                'lua_ls'
+            },
             automatic_installation = true,
             handlers = nil,
         },
         config = function(_, opts)
             require('mason-lspconfig').setup(opts)
         end,
+        lazy = false,
     },
     {
         "christoomey/vim-tmux-navigator",
@@ -30,7 +36,11 @@ local Plugins = {
         end
     },
     {
-        "mfussenegger/nvim-dap"
+        "mfussenegger/nvim-dap",
+        config = function()
+            require "custom.configs.dap"
+        end
+
     },
     {
         "nvim-treesitter/nvim-treesitter",
@@ -70,6 +80,8 @@ local Plugins = {
     },
     {
         "rcarriga/nvim-dap-ui",
+        event = "VeryLazy",
+        dependencies = "mfussenegger/nvim-dap",
         init = function()
             local dap, dapui = require('dap'), require('dapui')
             dapui.setup()

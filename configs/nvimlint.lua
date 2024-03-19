@@ -1,8 +1,13 @@
 return function()
     local lint = require("lint")
     lint.linters_by_ft = {
-        javascript = { "eslint_d" },
+        javascript = { "eslint" },
+        typescript = { "eslint" },
         json = { "jsonlint" },
+        javascriptreact = { "eslint" },
+        typescriptreact = { "eslint" },
+
+        -- python = { "pylint" },
         -- lua = {"luacheck"},
         markdown = { "markdownlint" },
     }
