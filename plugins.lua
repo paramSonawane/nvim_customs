@@ -1,27 +1,5 @@
 local Plugins = {
-    {
-        "williamboman/mason.nvim",
-        opts = require "custom.configs.mason"
-    },
-    {
-        "williamboman/mason-lspconfig.nvim",
-        opts = {
-            ensure_installed = {
-                'arduino_language_server',
-                'clangd',
-                'lua_ls',
-                'rust_analyzer',
-                'taplo',
-                'tsserver',
-            },
-            automatic_installation = true,
-            handlers = nil,
-        },
-        config = function(_, opts)
-            require('mason-lspconfig').setup(opts)
-        end,
-        lazy = false,
-    },
+    require("custom.configs.mason"),
     {
         "christoomey/vim-tmux-navigator",
         lazy = false
