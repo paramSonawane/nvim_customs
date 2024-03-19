@@ -55,7 +55,7 @@ return function()
                 -- and utils.not_in(fn.getbufvar(buf, "&filetype"), {})
                 then
                     lint.try_lint()
-                    -- lint.try_lint("codespell_columns")
+                    lint.try_lint("codespell_columns")
                 end
             end
         }
