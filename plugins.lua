@@ -7,10 +7,9 @@ local Plugins = {
         "williamboman/mason-lspconfig.nvim",
         opts = {
             ensure_installed = {
-                'codespell_columns',
                 'tsserver',
                 'clangd',
-                'lua_ls'
+                'lua_ls',
             },
             automatic_installation = true,
             handlers = nil,
