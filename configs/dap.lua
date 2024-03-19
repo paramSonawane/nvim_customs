@@ -4,7 +4,7 @@ local dap = require(
 
 dap.adapters["pwa-node"] = {
     type = "server",
-    host = "127.0.0.1",
+    host = "localhost",
     port = 8123,
     executable = {
         command = "js-debug-adapter",
