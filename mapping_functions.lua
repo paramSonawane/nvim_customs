@@ -4,6 +4,15 @@ local print_warn = function(msg)
     vim.api.nvim_command('echohl None')
 end
 
+local function tableMerge(table1, table2, result)
+    for _, v in ipairs(table1) do
+        table.insert(result, v)
+    end
+    for _, v in ipairs(table2) do
+        table.insert(result, v)
+    end
+end
+
 local get_file_git_status = function()
     local api = require('nvim-tree.api')
 
@@ -77,5 +86,6 @@ local M = {
             timeout_ms = 500
         })
     end,
+    table_merge = tableMerge
 }
 return M
