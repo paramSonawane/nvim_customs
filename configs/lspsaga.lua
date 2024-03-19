@@ -21,6 +21,9 @@ return function()
                 split = '<C-c>i'
             }
         },
+        lightbulb = {
+            sign = false,
+        },
         rename = {
             keys = {
                 quit = '<ESC>'
