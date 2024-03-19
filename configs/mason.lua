@@ -1,33 +1,65 @@
+local mason_lsp = {
+    'arduino_language_server',
+    'clangd',
+    'lua_ls',
+    'rust_analyzer',
+    'taplo',
+    'tsserver',
+}
+
+local mason_tools = {
+    "clang-format",
+    "codespell_columns",
+    "eslint_d",
+    "jsonlint",
+    "js-debug-adapter",
+    "jq",
+    "markdownlint",
+    "prettier",
+    "isort",
+    "black",
+    "stylua",
+}
+
+local all_tools = {}
+
+require("mapping_functions").table_merge(mason_lsp, mason_tools, all_tools)
+
 return {
-    ensure_installed = {
-        "arduino-language-server",
-        "clangd",
-        "clang-format",
-        "codespell_columns",
-        "eslint_d",
-        -- "eslint-lsp",
-        -- "cspell",
-        -- "gopls",
-        "jsonlint",
-        "js-debug-adapter",
-        "jq",
-        "lua-language-server",
-        "markdownlint",
-        "rust-analyzer",
-        "prettier",
-        "isort",
-        "black",
-        "stylua",
-        "taplo",
-        -- "rustfmt"
+    "williamboman/mason.nvim",
+    dependencies = {
+        "williamboman/mason-lspconfig.nvim",
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
-    ui = {
-        icons = {
-            package_uninstalled = ""
-        }
-    },
-    registries = {
-        "github:mason-org/mason-registry",
-        "github:paramSonawane/mason-registry",
-    },
+    config = function()
+        local mason = require("mason")
+        local mason_lspconfig = require("mason-lspconfig")
+        local mason_tool_installer = require("mason-tool-installer")
+
+        mason.setup({
+            ensure_installed = all_tools,
+            ui = {
+                icons = {
+                    package_uninstalled = ""
+                }
+            },
+            registries = {
+                "github:mason-org/mason-registry",
+                "github:paramSonawane/mason-registry",
+            },
+        })
+
+        mason_lspconfig.setup({
+            ensure_installed = mason_lsp,
+            automatic_installation = true,
+            -- handlers = nil,
+        })
+
+        mason_tool_installer.setup({
+            ensure_installed = mason_tools,
+            run_on_start = true,
+            start_delay = 2000
+        })
+    end,
+    lazy = false
 }
