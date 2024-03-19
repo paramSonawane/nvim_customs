@@ -7,9 +7,12 @@ local Plugins = {
         "williamboman/mason-lspconfig.nvim",
         opts = {
             ensure_installed = {
-                'tsserver',
+                'arduino_language_server',
                 'clangd',
                 'lua_ls',
+                'rust_analyzer',
+                'taplo',
+                'tsserver',
             },
             automatic_installation = true,
             handlers = nil,
@@ -44,7 +47,7 @@ local Plugins = {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ':TSUpdate',
-        config = require "custom.configs.nvim_treesitter",
+        opts = require "custom.configs.nvim_treesitter",
         dependencies = {
             "nvim-treesitter/nvim-treesitter-textobjects"
         }
@@ -80,7 +83,7 @@ local Plugins = {
     {
         "rcarriga/nvim-dap-ui",
         event = "VeryLazy",
-        dependencies = "mfussenegger/nvim-dap",
+        dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
         init = function()
             local dap, dapui = require('dap'), require('dapui')
             dapui.setup()
@@ -204,7 +207,7 @@ local Plugins = {
     "akinsho/nvim-toggleterm.lua",
     {
         "anurag3301/nvim-platformio.lua",
-        dependecis = {
+        dependencies = {
             "akinsho/nvim-toggleterm.lua",
             "nvim-telescope/telescope.nvim",
             "nvim-lua/plenary.nvim",
