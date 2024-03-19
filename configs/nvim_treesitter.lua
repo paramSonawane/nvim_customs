@@ -1,7 +1,7 @@
 return {
-    highlight = {
-        enable = true,
-    },
+    -- highlight = {
+    --     enable = true,
+    -- },
     indent = {
         enable = true
     },
@@ -10,13 +10,17 @@ return {
         "json",
         "regex",
         "lua",
-        "javascript",
-        "typescript",
+        -- some error with ts/js sitter causes save fails E13
+        -- "javascript",
+        -- "typescript",
         "python",
         "rust",
         "html",
         "markdown",
-        "markdown_inline"
+        "markdown_inline",
+        "c",
+        "vim",
+        "vimdoc"
     },
     incremental_selection = {
         enable = true,
