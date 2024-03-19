@@ -49,7 +49,8 @@ local M = {
     git_unstage = function()
         local gs, node, api = get_file_git_status()
         if gs == "M " or gs == "A " then
-            vim.cmd("silent !git rm --cached -r -- " .. node.absolute_path)
+            vim.cmd("silent !git reset -q HEAD -- " .. node.absolute_path)
+            -- vim.cmd("silent !git rm --cached -r -- " .. node.absolute_path)
             print("Unstaged")
         else
             print_warn("Failed to unstage")
