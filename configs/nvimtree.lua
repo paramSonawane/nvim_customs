@@ -3,7 +3,7 @@ return {
         enable = true,
     },
     view = {
-        side = "right",
+        side = "left",
     },
     renderer = {
         -- root_folder_label = true,
