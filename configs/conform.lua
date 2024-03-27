@@ -22,11 +22,11 @@ return {
 
         ["_"] = { "trim_whitespace" },
     },
-    format_on_save = {
-        lsp_fallback = true,
-        async = false,
-        timeout_ms = 500
-    },
+    -- format_on_save = {
+    --     lsp_fallback = true,
+    --     async = false,
+    --     timeout_ms = 500
+    -- },
     formatters = {
         clang_format = {
             args = { "-style={IndentWidth: 4}" }
