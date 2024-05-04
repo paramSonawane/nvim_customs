@@ -16,6 +16,16 @@ local Plugins = {
         end
     },
     {
+        "L3MON4D3/LuaSnip",
+        dependencies = "rafamadriz/friendly-snippets",
+        opts = { history = true, updateevents = "TextChanged,TextChangedI" },
+        config = function(_, opts)
+            require('luasnip').filetype_extend("javascript", {"javascriptreact"})
+            require('luasnip').filetype_extend("javascript", {"html"})
+          require("plugins.configs.others").luasnip(opts)
+        end,
+    },
+    {
         "mfussenegger/nvim-dap",
         config = function()
             require "custom.configs.dap"
