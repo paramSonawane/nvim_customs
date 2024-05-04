@@ -191,10 +191,24 @@ M.glow = {
 
 M.conform = {
     n = {
-        ["<leader>fr"] = {
+        ["<leader>fm"] = {
             require('custom.mapping_functions').format_pretty,
-            "Format Range"
+            "Conform Formatting"
         }
     }
 }
+
+M.venv = {
+    n = {
+        ["<leader>sv"] = {
+            "<cmd>VenvSelect<cr>",
+            "Select Virtual Environment"
+        },
+        ["<leader>sc"] = {
+            "<cmd>VenvSelectCached<cr>",
+            "Select Previous Virtual Environment"
+        }
+    }
+}
+
 return M
