@@ -15,7 +15,10 @@ M.ui = {
             local actived_venv = function()
                 local venv_name = require('venv-selector').get_active_venv()
                 if venv_name ~= nil then
+                    -- replace the path if it is of poetry
                     venv_name = string.gsub(venv_name, '.*/pypoetry/virtualenvs/', '(poetry) ')
+                    -- get the directory of the venv instead of entire path
+                    venv_name = string.match(venv_name, ".*/(.*)")
                     return '  ' .. venv_name .. ' '
                 else
                     return ''
