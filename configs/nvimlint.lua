@@ -7,7 +7,11 @@ return function()
         -- javascriptreact = { "eslint_d" },
         -- typescriptreact = { "eslint_d" },
 
-        -- python = { "pylint" },
+        python = {
+            -- "mypy",
+            "ruff",
+            -- "pylint"
+        },
         -- lua = {"luacheck"},
         markdown = { "markdownlint" },
     }

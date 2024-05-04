@@ -222,3 +222,9 @@ lspconfig.lua_ls.setup {
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = 0 })
     end,
 }
+
+lspconfig.pyright.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "python" }
+})

@@ -20,9 +20,9 @@ local Plugins = {
         dependencies = "rafamadriz/friendly-snippets",
         opts = { history = true, updateevents = "TextChanged,TextChangedI" },
         config = function(_, opts)
-            require('luasnip').filetype_extend("javascript", {"javascriptreact"})
-            require('luasnip').filetype_extend("javascript", {"html"})
-          require("plugins.configs.others").luasnip(opts)
+            require('luasnip').filetype_extend("javascript", { "javascriptreact" })
+            require('luasnip').filetype_extend("javascript", { "html" })
+            require("plugins.configs.others").luasnip(opts)
         end,
     },
     {
@@ -31,6 +31,15 @@ local Plugins = {
             require "custom.configs.dap"
         end
 
+    },
+    {
+        "mfussenegger/nvim-dap-python",
+        ft = "python",
+        dependencies = "mfussenegger/nvim-dap",
+        config = function(_, opts)
+            local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+            require('dap-python').setup(path)
+        end
     },
     {
         "nvim-treesitter/nvim-treesitter",

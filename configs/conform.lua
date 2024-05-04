@@ -8,7 +8,7 @@ return {
         html = { "prettier" },
         -- lua = {"stylua"},
         -- -- will first run isort then black. use nested list for either or
-        -- python = { "isort", "black" },
+        python = { "isort", "black" },
         -- rust = { "rustfmt" },
         -- ["*"] = {"codespell"},
         -- * for all file types, _ for filetypes without formatters

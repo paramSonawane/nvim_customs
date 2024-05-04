@@ -2,6 +2,7 @@ local mason_lsp = {
     'arduino_language_server',
     'clangd',
     'lua_ls',
+    'pyright',
     'rust_analyzer',
     'taplo',
     'tsserver',
@@ -17,7 +18,10 @@ local mason_tools = {
     "markdownlint",
     "prettier",
     "isort",
+    "ruff",
     "black",
+    "debugpy",
+    "mypy",
     "stylua",
 }
 
