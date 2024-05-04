@@ -7,16 +7,26 @@ M.ui = {
     statusline = {
         theme = "vscode_colored",
         -- modules arg here is the default table of modules
-        -- overriden_modules = function(modules)
-        -- modules[1] = (function()
-        --    return "MODE!"
-        -- end)()
-        -- table.insert(
-        --    modules,
-        --    4,
-        --    require('nvchad.statusline.vscode_colored').gitchanges()
-        -- )
-        -- end,
+        overriden_modules = function(modules)
+            -- modules[1] = (function()
+            --    return "MODE!"
+            -- end)()
+
+            local actived_venv = function()
+                local venv_name = require('venv-selector').get_active_venv()
+                if venv_name ~= nil then
+                    venv_name = string.gsub(venv_name, '.*/pypoetry/virtualenvs/', '(poetry) ')
+                    return '  ' .. venv_name .. ' '
+                else
+                    return ''
+                end
+            end
+            table.insert(
+                modules,
+                13,
+                actived_venv()
+            )
+        end,
     },
     telescope = {
         style = "bordered"
@@ -82,5 +92,20 @@ vim.diagnostic.config({
         highlight_whole_line = true,
     }
 })
---
+
+vim.api.nvim_create_autocmd('VimEnter', {
+    desc = 'Auto select virtualenv',
+    pattern = '*',
+    callback = function()
+        local venv = (
+            vim.fn.findfile('pyproject.toml', vim.fn.getcwd() .. ';')
+            or vim.fn.findfile('Pipfile', vim.fn.getcwd() .. ';')
+        )
+        if venv then
+            require('venv-selector').retrieve_from_cache()
+        end
+    end,
+    once = true,
+})
+
 return M

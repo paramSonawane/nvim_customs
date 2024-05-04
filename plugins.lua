@@ -224,7 +224,12 @@ local Plugins = {
             'nvim-telescope/telescope.nvim',
             'mfussenegger/nvim-dap-python'
         },
-        lazy = false,
+        config = function()
+            local venv_selector = require("venv-selector")
+            venv_selector.setup {
+                changed_venv_hooks = { venv_selector.hooks.pyright }
+            }
+        end
     }
 }
 
