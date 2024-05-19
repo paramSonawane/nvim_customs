@@ -227,7 +227,8 @@ local Plugins = {
         config = function()
             local venv_selector = require("venv-selector")
             venv_selector.setup {
-                changed_venv_hooks = { venv_selector.hooks.pyright }
+                changed_venv_hooks = { venv_selector.hooks.pyright },
+                notify_user_on_active = false
             }
         end
     }
