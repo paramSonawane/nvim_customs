@@ -1,6 +1,6 @@
 local mason_lsp = {
     'arduino_language_server',
-    'clangd',
+    -- 'clangd',
     'lua_ls',
     'pyright',
     'rust_analyzer',
